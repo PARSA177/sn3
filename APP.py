@@ -21,8 +21,13 @@ s.title('موضوعات بیشتر')
 s.write('ارزش بازار سهام شرکت اپل با دنبال کردن نزول شدیدی که سال گذشته داشت، روز سه شنبه کاهش چشمگیری پیدا کرد و برای نخستین بار از مارس سال ۲۰۲۱، به زیر دو تریلیون دلار رسید.')
 s.write('گرفته شده از رسانه های ایسنا و آخرین خبر و ععصر ایران و باشگه خبرنگاران نوجوانان ')
 s.date_input('تاریخ امروز')
-data=yf.download('AAPL',start='2022-11-15' , end='2023-11-16')
-s.line_chart(data)
+data = yf.download('AAPL', start='2022-11-15', end='2023-11-16')
+
+# حذف سطح دوم از ستون‌ها (نام شرکت)
+data.columns = data.columns.droplevel(1)
+
+# حالا می‌توانید نمودار را بکشید
+s.line_chart(data[['Close', 'Open', 'High', 'Low']])
 s.markdown("""
 <style> p{color:white; text-align: justify;}
 *{direction:rtl;font-family: tahoma;}
