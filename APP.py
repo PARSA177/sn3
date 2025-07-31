@@ -19,7 +19,7 @@ s.write('ارزش بازار سهام شرکت اپل با دنبال کردن �
 s.write('گرفته شده از رسانه های ایسنا و آخرین خبر و ععصر ایران و باشگه خبرنگاران نوجوانان ')
 s.date_input('تاریخ امروز')
 data=yf.download('AAPL',start='2022-11-15' , end='2023-11-16')
-st.line_chart(data)
+s.line_chart(data)
 s.markdown("""
 <style> p{color:white; text-align: justify;}
 *{direction:rtl;font-family: tahoma;}
